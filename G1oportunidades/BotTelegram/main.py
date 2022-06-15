@@ -36,13 +36,13 @@ def registerUser(TelegramId,filename='users.json'):
 		json.dump(file_data, file, indent = 4)
 
 
-async def start(update: Update, context: CallbackContext.DEFAULT_TYPE):
+async def start(update: Update, context: CallbackContext):
     registerUser(update.effective_user.id)
     await context.bot.send_message(chat_id=update.effective_chat.id, text=UsersDict["WelcomeMessage"])
 
 
 
-async def AboutMe(update: Update, context: CallbackContext.DEFAULT_TYPE):
+async def AboutMe(update: Update, context: CallbackContext):
     for User in UsersDict['Users']:
         if User['TelegramId'] == update.effective_user.id:
             await context.bot.send_message(chat_id=update.effective_chat.id, text=str(User))

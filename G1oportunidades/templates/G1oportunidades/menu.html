@@ -1,7 +1,28 @@
 <html>
 	<body>
-		Incluir seu Texto HTML na View <b>menu</b>
+		<h2>
+			{{nome}}
+		</h2>
 		<br><br>
-		Texto: {{nome}}
+		{% for item in lista %}
+			Titulo: {{item.Titulo}}
+			<br>
+			Escolaridade: {{item.Escolaridade}}
+			<br>
+			Salário inicial: R$ {{item.Salario}},00
+			<br>
+			Localizacao: {{item.Localizacao}}
+			<br>
+			Carga Horária: {{item.CargaHoraria}}
+			<br>
+			Detalhes: {{item.Detalhes}}
+			<br>
+			Link: <a href={{item.link}}>Link</a>
+			<br>
+			Quantidade de Vagas: {{item.QuantidadeVagas}}
+			<br>
+			Data postada{{item.DataPostada}}
+			<br><br>
+		{% endfor %}
 	</body>
 <html>
