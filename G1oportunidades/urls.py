@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
 
 	url(r'^menu/', views.menu, name="menu"),
+	url(r'^CreateProfile/', views.CreateProfile, name="CreateProfile"),
 ]
