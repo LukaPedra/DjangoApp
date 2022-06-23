@@ -1,7 +1,9 @@
 <html>
 	<body>
-		Incluir seu Texto HTML na View <b>CreateProfile</b>
-		<br><br>
-		Texto: {{nome}}
+		<form method="post">
+			{% csrf_token %}
+			{{formulario.as_p}}
+			<input type="submit" value="Salvar"/>
+		</form>
 	</body>
 <html>
