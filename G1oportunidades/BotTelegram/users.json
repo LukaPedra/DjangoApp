@@ -9,7 +9,17 @@
             "PretensaoSalarial": "",
             "AreasdeInteresse": "",
             "CursosExtracurriculares": ""
+        },
+        {
+            "GloboId": "",
+            "TelegramId": 5595810785,
+            "Escolaridade": "",
+            "ExperienciaProfissional": "",
+            "CidadedeInteresse": "",
+            "PretensaoSalarial": "",
+            "AreasdeInteresse": "",
+            "CursosExtracurriculares": ""
         }
     ],
-    "WelcomeMessage": "Olá! Eu sou a assistente do G1 Oportunidades. Meu objetivo \u00e9 ajudar voc\u00ea a encontrar um emprego rastreando as melhores vagas poss\u00edveis de acordo com as suas necessidades profissionais"
+    "WelcomeMessage": "Ol\u00e1! Eu sou a assistente do G1 Oportunidades. Meu objetivo \u00e9 ajudar voc\u00ea a encontrar um emprego rastreando as melhores vagas poss\u00edveis de acordo com as suas necessidades profissionais"
 }
