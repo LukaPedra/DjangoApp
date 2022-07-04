@@ -21,7 +21,7 @@ class RegisterUser(forms.Form):
         (Super_Incomp, 'Ensino superior completo')
     ]'''
     Nome = forms.CharField()
-    #TelegramId = forms.CharField()
+    TelegramId = forms.CharField()
     Escolaridade = forms.CharField()
     ExperiênciaProfissional = forms.CharField()
     CidadedeInteresse = forms.CharField()

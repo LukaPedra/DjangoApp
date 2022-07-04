@@ -1,9 +1,10 @@
 from cgitb import text
 import django.db
 import os
+import random
 import logging
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
-from telegram.ext import ApplicationBuilder, CallbackContext, CommandHandler, MessageHandler, filters, ContextTypes
+from telegram.ext import ApplicationBuilder, CallbackContext, CommandHandler, MessageHandler, filters, ContextTypes, ConversationHandler
 import json
 import sqlite3
 
@@ -49,12 +50,12 @@ def registerUser(Nome, TelegramId, filename='users.json'):
 
 
 def GetInfo(TelegramId):
-	for row in cur.execute("SELECT * FROM G1oportunidades_user WHERE TelegramId = ?",(str(TelegramId))):
+	for row in cur.execute("SELECT * FROM G1oportunidades_user WHERE TelegramId = ?",(str(TelegramId),)):
 		return row
 
-async def start(update: Update, context: CallbackContext):
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     #registerUser(update.effective_user.id)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=UsersDict["WelcomeMessage"])
+	await context.bot.send_message(chat_id=update.effective_chat.id, text=UsersDict["WelcomeMessage"])
 
 async def NewUser(update: Update, context: ContextTypes.DEFAULT_TYPE):
 	"""Starts the conversation and asks the user about their name"""
@@ -67,12 +68,23 @@ async def NewUser(update: Update, context: ContextTypes.DEFAULT_TYPE):
 	await context.bot.send_message(chat_id=update.effective_chat.id, text="printed.")
 
 
-
 async def AboutMe(update: Update, context: ContextTypes.DEFAULT_TYPE):
 	print("About me entered")
 	for row in cur.execute("SELECT * FROM G1oportunidades_user WHERE TelegramId = ?",(str(update.effective_chat.id),)):
 		Message = ("Nome: %s\nTelegramId: %s\nExperiência Profissional: %s\nCidade de Interesse: %s\nPretensão Salarial: R$ %s.00\nÁrea de Interesse: %s\nCursos Extracurriculares: %s\nEscolaridade: %s"%(row[1], row[2],row[3],row[4],row[5],row[6],row[7],row[8]))
 		await context.bot.send_message(chat_id=update.effective_chat.id, text=Message)
+
+async def Vaga(update: Update, context: ContextTypes.DEFAULT_TYPE):
+	profile = GetInfo(update.effective_user.id)
+	cur.execute("SELECT * FROM G1oportunidades_vaga")
+	rows = cur.fetchall()
+	if not rows:
+		await update.message.reply_text("Não conseguimos encontrar uma vaga :(")
+		return
+	vaga = random.choice(rows)
+	text = ("⚠Encontramos esta vaga em %s.\nSegue o link: %s"%(vaga[4],vaga[7]))
+	await context.bot.send_message(chat_id=update.effective_chat.id, text=text)
+
 
 if __name__ == '__main__':
 	application = ApplicationBuilder().token('5425942873:AAFm-nzTWN_2yAA4ehvyGKD9-C9ozYOC49I').build()
@@ -80,7 +92,9 @@ if __name__ == '__main__':
 	start_handler = CommandHandler('start', start)
 	AboutMe_handler = CommandHandler('AboutMe',AboutMe)
 	NewUser_handler = CommandHandler('NewUser', NewUser)
+	Vaga_handler = CommandHandler('Vaga', Vaga)
 	application.add_handler(start_handler)
 	application.add_handler(AboutMe_handler)
 	application.add_handler(NewUser_handler)
+	application.add_handler(Vaga_handler)
 	application.run_polling()
