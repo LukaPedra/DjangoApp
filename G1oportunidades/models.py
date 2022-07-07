@@ -23,7 +23,7 @@ class user(models.Model):
         (Super_Incomp, 'Ensino superior completo')
     ]
     GloboId = models.CharField(max_length=100)
-    TelegramId = models.PositiveIntegerField()
+    TelegramId = models.PositiveIntegerField(default = 0)
     Escolaridade = models.CharField(
         max_length=4,
         choices = TiposEscolaridades, 

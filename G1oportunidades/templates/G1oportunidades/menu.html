@@ -1,39 +1,42 @@
 <html>
     <head>
         <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
 	<body>
 		<h2>
 			{{nome}}
 		</h2>
 		<br><br>
-		{% for item in lista %}
-			<b>Titulo: {{item.Titulo}}</b>
-			<br>
-			Escolaridade: {{item.Escolaridade}}
-            <br>
-            TelegramId: {{item.TelegramId}}
-			<br>
-			Salรกrio inicial: R$ {{item.Salario}},00
-			<br>
-			Localizacao: {{item.Localizacao}}
-			<br>
-			Carga Horรกria: {{item.CargaHoraria}}
-			<br>
-			Detalhes: {{item.Detalhes}}
-			<br>
-			Link: <a href={{item.link}}>Link</a>
-			<br>
-			Quantidade de Vagas: {{item.QuantidadeVagas}}
-			<br>
-			Data postada{{item.DataPostada}}
-			<br><br>
-		{% endfor %}
-        
-        <button type="button" class="btn btn-primary">Primary</button>
-        
-        <!-- JavaScript Bundle with Popper -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+		<div>
+
+			{% for item in lista %}
+				<b>Titulo: {{item.Titulo}}</b>
+				<br>
+				Escolaridade: {{item.Escolaridade}}
+				<br>
+				TelegramId: {{item.TelegramId}}
+				<br>
+				Salário inicial: R$ {{item.Salario}},00
+				<br>
+				Localizacao: {{item.Localizacao}}
+				<br>
+				Carga Horária: {{item.CargaHoraria}}
+				<br>
+				Detalhes: {{item.Detalhes}}
+				<br>
+				Link: <a href={{item.link}}>Link</a>
+				<br>
+				Quantidade de Vagas: {{item.QuantidadeVagas}}
+				<br>
+				Data postada{{item.DataPostada}}
+				<br><br>
+			{% endfor %}
+			
+			<button type="button" class="btn btn-primary">Primary</button>
+			
+			<!-- JavaScript Bundle with Popper -->
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+		</div>
 	</body>
 <html>

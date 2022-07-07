@@ -15,7 +15,7 @@ def CreateProfile(request):
         form = RegisterUser(request.POST)
         if form.is_valid():
             nome = form.cleaned_data['Nome']
-            TelegramId = form.cleaned_data['TelegramId']
+            #TelegramId = form.cleaned_data['TelegramId']
             Escolaridade = form.cleaned_data['Escolaridade']
             ExperiênciaProfissional = form.cleaned_data['ExperiênciaProfissional']
             CidadedeInteresse = form.cleaned_data['CidadedeInteresse']
@@ -24,7 +24,7 @@ def CreateProfile(request):
             CursosExtracurriculares = form.cleaned_data['CursosExtracurriculares']
             NewUser = user()
             NewUser.GloboId = nome
-            NewUser.TelegramId = TelegramId
+            NewUser.TelegramId = 0
             NewUser.Escolaridade = Escolaridade
             NewUser.ExperiênciaProfissional = ExperiênciaProfissional
             NewUser.CidadedeInteresse = CidadedeInteresse

@@ -1,16 +1,40 @@
 <html>
     <head>
         <!-- CSS only -->
+        <link rel = "teste" href="teste.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
 	<body>
-		<form method="post">
-			{% csrf_token %}
-			{{formulario.as_p}}
-			<input type="submit" class="btn btn-primary" value="Salvar"/>
-		</form>
+		<div class = "teste">
+			<br>
+			<h1 id = titulo>
+				G1oportunidades
+			</h1>
+			<form method="post">
+				{% csrf_token %}
+				<br>
+				{{formulario.as_p}}
+				<input type="submit" class="btn btn-primary" value="Salvar"/>
+			</form>
+		</div>
         
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 	</body>
+	<style>
+		body{
+			background-color:#f6f6f6;
+		}
+		.teste{
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			padding: 30px;
+			
+			font-weight: bold;
+		}
+		#titulo{
+			color: #c4170c
+		}
+	</style> 
 <html>

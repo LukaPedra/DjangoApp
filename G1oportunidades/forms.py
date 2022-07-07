@@ -1,7 +1,7 @@
 from django import forms
 
 class RegisterUser(forms.Form):
-    '''
+    
 	Fund1_Incomp = 'EF1I'
 	Fund1_Comp = 'EF1C'
 	Fund2_Incomp = 'EF2I'
@@ -19,12 +19,12 @@ class RegisterUser(forms.Form):
         (Medio_Comp, 'Ensino medio completo'),
         (Super_Incomp, 'Ensino superior incompleto'),
         (Super_Incomp, 'Ensino superior completo')
-    ]'''
-    Nome = forms.CharField()
-    TelegramId = forms.CharField()
-    Escolaridade = forms.CharField()
-    ExperiênciaProfissional = forms.CharField()
-    CidadedeInteresse = forms.CharField()
-    PretensaoSalarial = forms.CharField()
-    AreadeInteresse = forms.CharField()
-    CursosExtracurriculares = forms.CharField()
+	]
+	Nome = forms.CharField(label="Nome do Usuário")
+	#TelegramId = forms.CharField()
+	Escolaridade = forms.ChoiceField(label = "Escolaridade",choices = TiposEscolaridades)
+	ExperiênciaProfissional = forms.CharField(label = "Experiência Profissional")
+	CidadedeInteresse = forms.CharField(label = "Cidade de Interesse")
+	PretensaoSalarial = forms.IntegerField(label = "Pretensão Salarial")
+	AreadeInteresse = forms.CharField(label = "Área de Interesse")
+	CursosExtracurriculares = forms.CharField(label = "Cursos Extracurriculares")
